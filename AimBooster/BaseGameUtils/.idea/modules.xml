@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaseGameUtils.iml" filepath="$PROJECT_DIR$/BaseGameUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../BasicSamples.iml" filepath="$PROJECT_DIR$/../../BasicSamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../BeGenerous/BeGenerous.iml" filepath="$PROJECT_DIR$/../../BeGenerous/BeGenerous.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../ButtonClicker/ButtonClicker.iml" filepath="$PROJECT_DIR$/../../ButtonClicker/ButtonClicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../CollectAllTheStars2/CollectAllTheStars2.iml" filepath="$PROJECT_DIR$/../../CollectAllTheStars2/CollectAllTheStars2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../SavedGames/SavedGames.iml" filepath="$PROJECT_DIR$/../../SavedGames/SavedGames.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../SkeletonTbmp/SkeletonTbmp.iml" filepath="$PROJECT_DIR$/../../SkeletonTbmp/SkeletonTbmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TrivialQuest/TrivialQuest.iml" filepath="$PROJECT_DIR$/../../TrivialQuest/TrivialQuest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TrivialQuest2/TrivialQuest2.iml" filepath="$PROJECT_DIR$/../../TrivialQuest2/TrivialQuest2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../TypeANumber/TypeANumber.iml" filepath="$PROJECT_DIR$/../../TypeANumber/TypeANumber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../libraries.iml" filepath="$PROJECT_DIR$/../libraries.iml" />
+    </modules>
+  </component>
+</project>

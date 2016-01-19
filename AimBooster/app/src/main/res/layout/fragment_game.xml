@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/screen"
+    android:background="@color/white">
+
+    <TextView
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="61000"
+        android:textSize="25sp"
+        android:gravity="end"
+        android:id="@+id/timerText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+    <TextView
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scoreType"
+        android:textSize="25sp"
+        android:gravity="end"
+        android:id="@+id/scoreType"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:textSize="25sp"
+        android:text=""
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:id="@+id/score"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/scoreType"
+        android:layout_toEndOf="@+id/scoreType" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:text="@string/targets"
+        android:id="@+id/targets"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/score"
+        android:layout_toEndOf="@+id/score" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:id="@+id/targetsScore"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/targets"
+        android:layout_toEndOf="@+id/targets" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Miss"
+        android:textSize="50sp"
+        android:id="@+id/missText"
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Triggered"
+        android:textSize="50sp"
+        android:id="@+id/triggered"
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"  />
+
+    <TextView
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30dp"
+        android:id="@+id/distanceText" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/scoreType"
+        android:id="@+id/gameFrame">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:textSize="250dp"
+            android:text="3"
+            android:id="@+id/cdText"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

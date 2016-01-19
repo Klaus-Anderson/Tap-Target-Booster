@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Tap Target Booster</string>
+
+    <string name="double_shot">Double Shot</string>
+    <string name="twitch">Twitch</string>
+    <string name="speed">Speed</string>
+    <string name="time_challenge">Time Challenge</string>
+    <string name="precision">Precision</string>
+    <string name="tracking">Tracking</string>
+    <string name="reaction">Reaction</string>
+    <string name="Leaderboards">Leaderboards</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="target_duration">Target Duration</string>
+    <string name="randomize_spawn_time">Randomize Spawn Time</string>
+    <string name="target_per_second">Targets Per Second</string>
+    <string name="start">Start</string>
+    <string name="reset">Reset</string>
+    <string name="back">Back</string>
+
+    <string name="instant_respawn_time">Instant Respawn</string>
+    <string name="sped">Speed:</string>
+    <string name="accuracy">Accuracy:</string>
+    <string name="targets">Targets:</string>
+    <string name="average">Average:</string>
+
+    <string name="game_over">Game Over</string>
+    <string name="minutes">Minutes:</string>
+    <string name="seconds">Seconds:</string>
+    <string name="game_Duration">Game Duration</string>
+    <string name="score">Score:</string>
+    <string name="scoreType">Accuracy</string>
+    <string name="target_size">Target Size</string>
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="signin_other_error">Sign-In Error</string>
+    <string name="signin_failure">Sign-In Failure</string>
+    <string name="lb">LB</string>
+    <string name="achievements">Achievements</string>
+</resources>

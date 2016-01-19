@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_id">522561638356</string>
+
+    <!-- leaderboard IDs! -->
+    <string name="tc_b">CgkI1J_n2JoPEAIQBg</string>
+    <string name="tc_s">CgkI1J_n2JoPEAIQBw</string>
+    <string name="tc_g">CgkI1J_n2JoPEAIQCA</string>
+    <string name="pre_b">CgkI1J_n2JoPEAIQCQ</string>
+    <string name="pre_s">CgkI1J_n2JoPEAIQCg</string>
+    <string name="pre_g">CgkI1J_n2JoPEAIQCw</string>
+    <string name="twi_b">CgkI1J_n2JoPEAIQDA</string>
+    <string name="twi_s">CgkI1J_n2JoPEAIQDQ</string>
+    <string name="twi_g">CgkI1J_n2JoPEAIQDg</string>
+    <string name="rea_b">CgkI1J_n2JoPEAIQDw</string>
+    <string name="rea_s">CgkI1J_n2JoPEAIQEA</string>
+    <string name="rea_g">CgkI1J_n2JoPEAIQEQ</string>
+
+    <!-- Achievement IDs! -->
+    <string name="ooo_thats_fast">CgkI1J_n2JoPEAIQAQ</string>
+    <string name="sniper">CgkI1J_n2JoPEAIQAg</string>
+    <string name="itchy">CgkI1J_n2JoPEAIQAw</string>
+    <string name="lightning">CgkI1J_n2JoPEAIQBA</string>
+    <string name="on_click_hero">CgkI1J_n2JoPEAIQBQ</string>
+
+
+</resources>
