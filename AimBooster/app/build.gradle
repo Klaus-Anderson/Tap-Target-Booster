@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 29
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "angus.gaming.taptargetbooster"
         minSdkVersion 15
-        targetSdkVersion 21
+        targetSdkVersion 29
         versionCode 7
         versionName "1.6"
 
@@ -28,12 +28,15 @@ android {
             signingConfig signingConfigs.release
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
-
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile project(':BaseGameUtils')
-    compile 'com.google.android.gms:play-services:8.3.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.gms:play-services-games:18.0.1'
 }
