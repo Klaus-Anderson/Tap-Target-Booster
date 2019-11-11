@@ -18,12 +18,14 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 import angus.gaming.taptargetbooster.R;
 import angus.gaming.taptargetbooster.utils.GameModel;
 import angus.gaming.taptargetbooster.utils.GameType;
 import angus.gaming.taptargetbooster.utils.RankLevel;
+import angus.gaming.taptargetbooster.utils.SpawnType;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener {
@@ -47,8 +49,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
         ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).setOnSeekBarChangeListener(this);
         ((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).setOnSeekBarChangeListener(this);
         ((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).setOnSeekBarChangeListener(this);
-        ((CompoundButton)rootView.findViewById(R.id.randomBox)).setOnCheckedChangeListener(this);
-        ((CompoundButton)rootView.findViewById(R.id.respawnBox)).setOnCheckedChangeListener(this);
+        ((CompoundButton) rootView.findViewById(R.id.randomBox)).setOnCheckedChangeListener(this);
+        ((CompoundButton) rootView.findViewById(R.id.respawnBox)).setOnCheckedChangeListener(this);
         rootView.findViewById(R.id.bronzeButton).setOnClickListener(this);
         rootView.findViewById(R.id.silverButton).setOnClickListener(this);
         rootView.findViewById(R.id.goldButton).setOnClickListener(this);
@@ -275,15 +277,32 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
     }
 
     private void onStartButtonClick() {
-        GameModel gameModel = new GameModel(((SeekBar) rootView.findViewById(R.id.gameDurationSeek)).getProgress(),
-                ((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).getProgress(),
-                ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).getProgress(),
-                ((SeekBar) rootView.findViewById(R.id.targetPerSecondSeek)).getProgress(),
-                ((CheckBox) rootView.findViewById(R.id.randomBox)).isChecked(),
-                ((CheckBox) rootView.findViewById(R.id.respawnBox)).isChecked(),
-                gameType);
+        SpawnType spawnType;
+
+        /* 1 = random respawn
+         * 2 = instant respawn
+         * 3 = timed respawn
+         */
+        if (((CheckBox) rootView.findViewById(R.id.randomBox)).isChecked())
+            spawnType = SpawnType.RANDOM;
+        else if (((CheckBox) rootView.findViewById(R.id.respawnBox)).isChecked())
+            spawnType = SpawnType.INSTANT;
+        else
+            spawnType = SpawnType.TIME;
+
+        GameModel gameModel = new GameModel((((SeekBar) rootView.findViewById(R.id.gameDurationSeek)).getProgress() + 1) * (.5) + 14.5,
+                (((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).getProgress() + 1) / 10,
+                ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).getProgress() + 30,
+                (((SeekBar) rootView.findViewById(R.id.targetPerSecondSeek)).getProgress() + 20) / 10,
+                spawnType, gameType);
+//        gameMap.put("td", (double) (((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).getProgress() + 1) / 10);
+//        gameMap.put("ts", (double) ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).getProgress() + 30);
+//        gameMap.put("tps", (double) (((SeekBar) rootView.findViewById(R.id.targetPerSecondSeek)).getProgress() + 20) / 10);
+//        gameMap.put("gd", (double) (((SeekBar) rootView.findViewById(R.id.gameDurationSeek)).getProgress() + 1) * (.5) + 14.5);
+//                gameMap.put("lb", leaderboard);
 
         Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.container, new GameFragment(gameModel), "game_tag").commit();
                 .replace(R.id.container, new GameFragment(gameModel), "game_tag").commit();
     }
 
