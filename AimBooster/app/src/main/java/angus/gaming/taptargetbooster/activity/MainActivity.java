@@ -14,8 +14,8 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
-import angus.gaming.taptargetbooster.fragment.MenuFragment;
 import angus.gaming.taptargetbooster.R;
+import angus.gaming.taptargetbooster.fragment.MenuFragment;
 
 import static angus.gaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_SIGN_IN;
 
@@ -143,6 +143,17 @@ public class MainActivity
                 new AlertDialog.Builder(this).setMessage(message)
                         .setNeutralButton(android.R.string.ok, null).show();
             }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        getSupportFragmentManager().getFragments();
+        if (getSupportFragmentManager().getFragments().size() > 0 &&
+                !(getSupportFragmentManager().getFragments().get(0) instanceof MenuFragment)) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new MenuFragment()).commit();
+        } else {
+            super.onBackPressed();
         }
     }
 }

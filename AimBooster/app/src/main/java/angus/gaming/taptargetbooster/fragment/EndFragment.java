@@ -131,7 +131,7 @@ public class EndFragment extends Fragment {
                 ((TextView) rootView.findViewById(R.id.targetsFinal)).setText((scoreModel.getSuccess()) + "");
                 rootView.findViewById(R.id.targetRadius).setVisibility(View.GONE);
                 rootView.findViewById(R.id.targetRadiusTitle).setVisibility(View.GONE);
-                if (scoreModel.getQuitTime() == 0) {
+                if (scoreModel.getQuitTime() == 0 && scoreModel.getRankAttempt() != null) {
                     switch (scoreModel.getRankAttempt()) {
                         case BRONZE:
 //                            Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.tc_b), ((long)(aver*100)));

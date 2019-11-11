@@ -77,10 +77,6 @@ public class GameModel {
         return targetsPerSecond;
     }
 
-    public void setTargetsPerSecond(Integer targetsPerSecond) {
-        this.targetsPerSecond = targetsPerSecond;
-    }
-
     public void setGameDuration(double gameDuration) {
         this.gameDuration = gameDuration;
     }

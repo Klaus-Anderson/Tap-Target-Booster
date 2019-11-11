@@ -18,10 +18,12 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 import angus.gaming.taptargetbooster.R;
 import angus.gaming.taptargetbooster.utils.GameModel;
 import angus.gaming.taptargetbooster.utils.GameType;
+import angus.gaming.taptargetbooster.utils.ScoreModel;
 import angus.gaming.taptargetbooster.utils.SpawnType;
 
 @SuppressLint("ValidFragment")
@@ -32,16 +34,7 @@ public class GameFragment extends Fragment {
     private double gameDurationMillis;
     private double targetDurationMillis;
     private SpawnType spawnType;
-    private double triggerTime;
-    private double dummyTrigger;
-    private double hitTime;
-    private double success;
-    private double attempt;
-    private double screenReset;
-    private double xLocation;
-    private double yLocation;
-    private double hitDistance;
-    private double scoreActual;
+    private double triggerTime, dummyTrigger, hitTime, success, attempt, screenReset, xLocation, yLocation, hitDistance, scoreActual, targetsPerSecond;
     private double quitTime = -1;
     private int targetPxSize, screenWidthDp, screenHeightDp, targetTopCorner, targetLeftCorner;
     private RelativeLayout gameFrame;
@@ -66,11 +59,11 @@ public class GameFragment extends Fragment {
         /**
          * Implement the settings from gameMap
          */
-        targetDurationMillis = ((double) gameModel.getTargetDuration()) * 100;
+        targetDurationMillis = ((((double) gameModel.getTargetDuration()) + 1) / 10) * 100;
 
-        gameDurationMillis = gameModel.getGameDuration() * 1000;
+        gameDurationMillis = ((gameModel.getGameDuration() + 1) * .5 + 14.5) * 1000;
 
-        double targetsPerSecond = (double) gameModel.getTargetsPerSecond();
+        targetsPerSecond = ((double) gameModel.getTargetsPerSecond()+ 20) / 10;
 
         // 1 = random
         // 2 = instant
@@ -218,30 +211,17 @@ public class GameFragment extends Fragment {
      * it gameModel.getGameType() and scoreMap
      */
     public void gameOver() {
-//        if(muf>=gameDurationMillis)
-//            ((MainActivity) GameFragment.this.getActivity()).newMenu();
-//        else {
-//            HashMap<String, Double> scoreMap;
-//            scoreMap = new HashMap<String, Double>();
-//            scoreMap.put("attempt", attempt);
-//            scoreMap.put("success", success);
-//            scoreMap.put("score", scoreActual);
-//            if(quitTime==0)
-//                scoreMap.put("quitTime", quitTime);
-//            else
-//                scoreMap.put("quitTime", Double.parseDouble(timerText.getText() + "") * 10);
-//            scoreMap.put("gameDurationMillis", gameDurationMillis);
-//            scoreMap.put("targetRadius", (double) targetPxSize);
-//            if(gameMap.get("lb").equals("bronze"))
-//                scoreMap.put("lb", ((double) 1));
-//            else if(gameMap.get("lb").equals("silver"))
-//                scoreMap.put("lb", ((double) 2));
-//            else if(gameMap.get("lb").equals("gold"))
-//                scoreMap.put("lb", ((double) 3));
-//            else
-//                scoreMap.put("lb", ((double) 0));
-//            ((MainActivity) GameFragment.this.getActivity()).newScore(gameModel.getGameType(), scoreMap);
-//        }
+        if (muf >= gameDurationMillis)
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new MenuFragment()).commit();
+        else {
+            quitTime = quitTime == 0 ? quitTime : Double.parseDouble(timerText.getText() + "") * 10;
+            ScoreModel scoreModel = new ScoreModel(attempt, success, scoreActual, quitTime,
+                    gameDurationMillis, targetPxSize, gameModel.getGameType(), gameModel.getRankAttempt());
+
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new EndFragment(scoreModel)).commit();
+        }
     }
 
     /**
@@ -249,16 +229,18 @@ public class GameFragment extends Fragment {
      * updates the Game State based user interaction
      */
     private void updateGameState() {
-
         //display settings
-        double targetDpSize = (double) gameModel.getTargetSize();
+        double targetDpSize = (double) gameModel.getTargetSize() + 30;
+        if(GameFragment.this.getActivity() == null){
+            return;
+        }
         DisplayMetrics gameFrameMetrics = GameFragment.this.getActivity().
                 getResources().getDisplayMetrics();
         screenWidthDp = gameFrame.getWidth();
         screenHeightDp = gameFrame.getHeight();
         targetPxSize = (int) Math.round(targetDpSize * (gameFrameMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         //1000 = 1 second
-        Double time = Double.parseDouble(timerText.getText() + "") * 10;
+        double time = Double.parseDouble(timerText.getText() + "") * 10;
 
         //screen reset = game begin
         if (time <= screenReset) {

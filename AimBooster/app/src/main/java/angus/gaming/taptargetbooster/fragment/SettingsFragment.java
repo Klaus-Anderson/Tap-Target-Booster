@@ -290,9 +290,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
         else
             spawnType = SpawnType.TIME;
 
-        GameModel gameModel = new GameModel((((SeekBar) rootView.findViewById(R.id.gameDurationSeek)).getProgress() + 1) * (.5) + 14.5,
-                (((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).getProgress() + 1) / 10,
-                ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).getProgress() + 30,
+        GameModel gameModel = new GameModel((((SeekBar) rootView.findViewById(R.id.gameDurationSeek)).getProgress()),
+                (((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).getProgress()),
+                ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).getProgress(),
                 (((SeekBar) rootView.findViewById(R.id.targetPerSecondSeek)).getProgress() + 20) / 10,
                 spawnType, gameType);
 //        gameMap.put("td", (double) (((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).getProgress() + 1) / 10);
@@ -302,7 +302,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
 //                gameMap.put("lb", leaderboard);
 
         Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.container, new GameFragment(gameModel), "game_tag").commit();
                 .replace(R.id.container, new GameFragment(gameModel), "game_tag").commit();
     }
 
