@@ -30,7 +30,7 @@ ACTIVITY MANAGER PENDING INTENTS (dumpsys activity intents)
   * PendingIntentRecord{2a66c5de com.google.android.gms startService}
   * PendingIntentRecord{3607669 com.google.android.gms startService}
   * PendingIntentRecord{14cd0794 com.facebook.katana broadcastIntent}
-  * PendingIntentRecord{3352f257 angus.gaming.targetbooster broadcastIntent}
+  * PendingIntentRecord{3352f257 gms.angusgaming.targetbooster broadcastIntent}
   * PendingIntentRecord{3b3f4cd9 com.samsung.android.providers.context broadcastIntent}
   * PendingIntentRecord{1fbd8004 com.urbandroid.lux startService}
   * PendingIntentRecord{7c8e9ed com.shazam.android startActivity}
@@ -800,13 +800,13 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
 
   Delayed Historical broadcasts [background]:
   #0: BroadcastRecord{15d98117 u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #1: BroadcastRecord{112730a5 u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #2: BroadcastRecord{e7d2552 u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #3: act=com.smithmicro.netwise.NOTIFY_NWD_MANAGED_PROFILE_RSSI_CHANGED flg=0x10 (has extras), 1ms
     extras: Bundle[mParcelledData.dataSize=240]
@@ -900,20 +900,20 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
 
   Historical broadcasts [backgroundsplit_0]:
   #0: BroadcastRecord{222cca93 u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #1: BroadcastRecord{37ec4a87 u-1 android.intent.action.ACTION_POWER_CONNECTED}
     act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010
   #2: BroadcastRecord{3f876375 u-1 android.intent.action.TIME_SET}
     act=android.intent.action.TIME_SET flg=0x24000010
   #3: BroadcastRecord{3c1811cd u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #4: BroadcastRecord{f4b82b3 u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #5: BroadcastRecord{6cc020d u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #6: BroadcastRecord{3fac5b2d u0 android.intent.action.PACKAGE_REPLACED}
     act=android.intent.action.PACKAGE_REPLACED dat=package:com.google.android.gm flg=0x4000010 (has extras)
@@ -952,13 +952,13 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
     act=android.intent.action.PACKAGE_REMOVED dat=package:com.textra flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10455, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #18: BroadcastRecord{362e8dcc u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #19: BroadcastRecord{29bf6d06 u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #20: BroadcastRecord{10b7d820 u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #21: BroadcastRecord{3afee6a5 u0 android.intent.action.USER_PRESENT}
     act=android.intent.action.USER_PRESENT flg=0x24000010
@@ -971,7 +971,7 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
 
   Delayed Historical broadcasts [backgroundsplit_0]:
   #0: BroadcastRecord{6cc020d u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #1: BroadcastRecord{dbc6d51 u0 android.intent.action.PACKAGE_ADDED}
     act=android.intent.action.PACKAGE_ADDED dat=package:com.facebook.orca flg=0x4000010 (has extras)
@@ -979,11 +979,11 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
   #2: BroadcastRecord{dadfc5e u0 android.intent.action.PACKAGE_REMOVED}
     act=android.intent.action.PACKAGE_REMOVED dat=package:com.facebook.orca flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10127, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #3: act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 543ms
+  #3: act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 543ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #4: act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 2916ms
+  #4: act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 2916ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #5: act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 3934ms
+  #5: act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 3934ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #6: act=android.intent.action.PACKAGE_REPLACED dat=package:com.google.android.gm flg=0x4000010 (has extras), 870ms
     extras: Bundle[{android.intent.extra.UID=10134, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
@@ -1009,11 +1009,11 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
     extras: Bundle[{android.intent.extra.UID=10455, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #17: act=android.intent.action.PACKAGE_REMOVED dat=package:com.textra flg=0x4000010 (has extras), 3198ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10455, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #18: act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 346ms
+  #18: act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 346ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #19: act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 2885ms
+  #19: act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 2885ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #20: act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 3391ms
+  #20: act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 3391ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #21: act=android.intent.action.USER_PRESENT flg=0x24000010, 22ms
   #22: act=android.intent.action.USER_PRESENT flg=0x24000010, 50ms
@@ -1045,20 +1045,20 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
 
   Historical broadcasts [backgroundsplit_1]:
   #0: BroadcastRecord{337d3ad0 u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #1: BroadcastRecord{39bb0db4 u-1 android.intent.action.ACTION_POWER_CONNECTED}
     act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010
   #2: BroadcastRecord{2e42437b u-1 android.intent.action.TIME_SET}
     act=android.intent.action.TIME_SET flg=0x24000010
   #3: BroadcastRecord{2d7100f7 u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #4: BroadcastRecord{a71970f u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #5: BroadcastRecord{71c2710 u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #6: BroadcastRecord{caeee44 u0 android.intent.action.PACKAGE_REPLACED}
     act=android.intent.action.PACKAGE_REPLACED dat=package:com.google.android.gm flg=0x4000010 (has extras)
@@ -1097,13 +1097,13 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
     act=android.intent.action.PACKAGE_REMOVED dat=package:com.textra flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10455, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #18: BroadcastRecord{11d658a3 u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #19: BroadcastRecord{325d6fc7 u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #20: BroadcastRecord{23c322e4 u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #21: BroadcastRecord{116caa7a u0 android.intent.action.USER_PRESENT}
     act=android.intent.action.USER_PRESENT flg=0x24000010
@@ -1116,7 +1116,7 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
 
   Delayed Historical broadcasts [backgroundsplit_1]:
   #0: BroadcastRecord{71c2710 u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #1: BroadcastRecord{202f69b6 u0 android.intent.action.PACKAGE_ADDED}
     act=android.intent.action.PACKAGE_ADDED dat=package:com.facebook.orca flg=0x4000010 (has extras)
@@ -1124,11 +1124,11 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
   #2: BroadcastRecord{24ad483f u0 android.intent.action.PACKAGE_REMOVED}
     act=android.intent.action.PACKAGE_REMOVED dat=package:com.facebook.orca flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10127, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #3: act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 379ms
+  #3: act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 379ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #4: act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 1960ms
+  #4: act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 1960ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #5: act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 3130ms
+  #5: act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 3130ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #6: act=android.intent.action.PACKAGE_REPLACED dat=package:com.google.android.gm flg=0x4000010 (has extras), 912ms
     extras: Bundle[{android.intent.extra.UID=10134, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
@@ -1154,11 +1154,11 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
     extras: Bundle[{android.intent.extra.UID=10455, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #17: act=android.intent.action.PACKAGE_REMOVED dat=package:com.textra flg=0x4000010 (has extras), 2367ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10455, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #18: act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 291ms
+  #18: act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 291ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #19: act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 2570ms
+  #19: act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 2570ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #20: act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 2861ms
+  #20: act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 2861ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #21: act=android.intent.action.USER_PRESENT flg=0x24000010, 157ms
   #22: act=android.intent.action.USER_PRESENT flg=0x24000010, 40ms
@@ -1190,20 +1190,20 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
 
   Historical broadcasts [backgroundsplit_2]:
   #0: BroadcastRecord{1f3a55ce u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #1: BroadcastRecord{2009dddd u-1 android.intent.action.ACTION_POWER_CONNECTED}
     act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010
   #2: BroadcastRecord{2e712f0a u-1 android.intent.action.TIME_SET}
     act=android.intent.action.TIME_SET flg=0x24000010
   #3: BroadcastRecord{3d72db64 u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #4: BroadcastRecord{32d52321 u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #5: BroadcastRecord{1104a43c u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #6: BroadcastRecord{3ceaab0 u0 android.intent.action.PACKAGE_REPLACED}
     act=android.intent.action.PACKAGE_REPLACED dat=package:com.google.android.gm flg=0x4000010 (has extras)
@@ -1242,13 +1242,13 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
     act=android.intent.action.PACKAGE_REMOVED dat=package:com.textra flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10455, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #18: BroadcastRecord{185797a0 u0 android.intent.action.PACKAGE_REPLACED}
-    act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #19: BroadcastRecord{24c169f4 u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #20: BroadcastRecord{325e0749 u0 android.intent.action.PACKAGE_REMOVED}
-    act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #21: BroadcastRecord{1b91f22b u0 android.intent.action.USER_PRESENT}
     act=android.intent.action.USER_PRESENT flg=0x24000010
@@ -1261,7 +1261,7 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
 
   Delayed Historical broadcasts [backgroundsplit_2]:
   #0: BroadcastRecord{32d52321 u0 android.intent.action.PACKAGE_ADDED}
-    act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras)
+    act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #1: BroadcastRecord{2009879c u0 android.intent.action.PACKAGE_ADDED}
     act=android.intent.action.PACKAGE_ADDED dat=package:com.google.android.gm flg=0x4000010 (has extras)
@@ -1269,11 +1269,11 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
   #2: BroadcastRecord{31e909a4 u0 android.intent.action.PACKAGE_REMOVED}
     act=android.intent.action.PACKAGE_REMOVED dat=package:com.facebook.orca flg=0x4000010 (has extras)
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10127, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #3: act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 884ms
+  #3: act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 884ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #4: act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 4387ms
+  #4: act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 4387ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #5: act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 2374ms
+  #5: act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 2374ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #6: act=android.intent.action.PACKAGE_REPLACED dat=package:com.google.android.gm flg=0x4000010 (has extras), 2074ms
     extras: Bundle[{android.intent.extra.UID=10134, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
@@ -1299,11 +1299,11 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
     extras: Bundle[{android.intent.extra.UID=10455, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #17: act=android.intent.action.PACKAGE_REMOVED dat=package:com.textra flg=0x4000010 (has extras), 1575ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10455, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #18: act=android.intent.action.PACKAGE_REPLACED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 1068ms
+  #18: act=android.intent.action.PACKAGE_REPLACED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 1068ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #19: act=android.intent.action.PACKAGE_ADDED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 1815ms
+  #19: act=android.intent.action.PACKAGE_ADDED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 1815ms
     extras: Bundle[{android.intent.extra.UID=10216, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
-  #20: act=android.intent.action.PACKAGE_REMOVED dat=package:angus.gaming.targetbooster flg=0x4000010 (has extras), 4187ms
+  #20: act=android.intent.action.PACKAGE_REMOVED dat=package:gms.angusgaming.targetbooster flg=0x4000010 (has extras), 4187ms
     extras: Bundle[{android.intent.extra.REMOVED_FOR_ALL_USERS=false, android.intent.extra.UID=10216, android.intent.extra.DATA_REMOVED=false, android.intent.extra.REPLACING=true, android.intent.extra.user_handle=0}]
   #21: act=android.intent.action.USER_PRESENT flg=0x24000010, 20ms
   #22: act=android.intent.action.USER_PRESENT flg=0x24000010, 22ms
@@ -1437,7 +1437,7 @@ ACTIVITY MANAGER CONTENT PROVIDERS (dumpsys activity providers)
       -> 4397:com.android.systemui.recentsactivity/u0a69 s0/0 u1/1 +44m52s597ms
       -> 5696:com.cleanmaster.security:DefendService/u0a208 s0/0 u1/1 +42m1s289ms
       -> 6919:com.samsung.android.MtpApplication/1000 s0/0 u1/1 +5m38s101ms
-      -> 10110:angus.gaming.targetbooster/u0a216 s0/0 u1/1 +17s670ms
+      -> 10110:gms.angusgaming.targetbooster/u0a216 s0/0 u1/1 +17s670ms
   * ContentProviderRecord{b55d37 u0 com.sec.android.providers.security/.SecurityPoliciesProvider}
     proc=ProcessRecord{364b1f0e 3521:system/1000}
     singleton=true
@@ -1496,7 +1496,7 @@ ACTIVITY MANAGER CONTENT PROVIDERS (dumpsys activity providers)
       -> 9746:com.samsung.android.app.galaxyfinder/u0a39 s1/1 u0/0 +48s302ms
       -> 9794:com.shazam.android/u0a214 s1/1 u0/0 +47s712ms
       -> 9913:com.cleanmaster.security:worker/u0a208 s1/1 u0/0 +46s946ms
-      -> 10110:angus.gaming.targetbooster/u0a216 s1/1 u0/0 +17s714ms
+      -> 10110:gms.angusgaming.targetbooster/u0a216 s1/1 u0/0 +17s714ms
   * ContentProviderRecord{2320680d u0 android/com.android.internal.os.SmartManagerProvider}
     proc=ProcessRecord{364b1f0e 3521:system/1000}
     singleton=true
@@ -1838,9 +1838,9 @@ ACTIVITY MANAGER CONTENT PROVIDERS (dumpsys activity providers)
   * ContentProviderRecord{9fcf6d5 u0 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.speech.audio.AudioProvider}
     proc=ProcessRecord{174ddc19 5005:com.google.android.googlequicksearchbox:search/u0a87}
     authority=com.google.android.googlequicksearchbox.AudioProvider
-  * ContentProviderRecord{301d774c u0 angus.gaming.targetbooster/com.google.android.gms.measurement.AppMeasurementContentProvider}
-    proc=ProcessRecord{2a3b6f61 10110:angus.gaming.targetbooster/u0a216}
-    authority=angus.gaming.targetbooster.google_measurement_service
+  * ContentProviderRecord{301d774c u0 gms.angusgaming.targetbooster/com.google.android.gms.measurement.AppMeasurementContentProvider}
+    proc=ProcessRecord{2a3b6f61 10110:gms.angusgaming.targetbooster/u0a216}
+    authority=gms.angusgaming.targetbooster.google_measurement_service
   * ContentProviderRecord{11a82eea u0 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.search.core.icingsync.InternalIcingCorporaProvider}
     proc=ProcessRecord{174ddc19 5005:com.google.android.googlequicksearchbox:search/u0a87}
     authority=com.google.android.googlequicksearchbox.icing
@@ -2396,7 +2396,7 @@ ACTIVITY MANAGER SERVICES (dumpsys activity services)
     app=ProcessRecord{11c54b85 4767:com.google.android.gms/u0a16}
     created=-17s732ms started=false connections=1
     Connections:
-      act=com.google.android.gms.plus.service.START pkg=com.google.android.gms -> 10110:angus.gaming.targetbooster/u0a216
+      act=com.google.android.gms.plus.service.START pkg=com.google.android.gms -> 10110:gms.angusgaming.targetbooster/u0a216
   * ServiceRecord{3c3c3dee u0 android/.hardware.location.GeofenceHardwareService}
     app=ProcessRecord{364b1f0e 3521:system/1000}
     created=-53m53s806ms started=false connections=1
@@ -2529,7 +2529,7 @@ ACTIVITY MANAGER SERVICES (dumpsys activity services)
     app=ProcessRecord{11c54b85 4767:com.google.android.gms/u0a16}
     created=-17s727ms started=false connections=1
     Connections:
-      act=com.google.android.gms.games.service.START pkg=com.google.android.gms -> 10110:angus.gaming.targetbooster/u0a216
+      act=com.google.android.gms.games.service.START pkg=com.google.android.gms -> 10110:gms.angusgaming.targetbooster/u0a216
   * ServiceRecord{1536e44f u0 com.android.bluetooth/.hfp.HeadsetService}
     app=ProcessRecord{38f08d7b 8223:com.android.bluetooth/1002}
     created=-38m11s922ms started=true connections=1
@@ -2649,7 +2649,7 @@ ACTIVITY MANAGER SERVICES (dumpsys activity services)
 ACTIVITY MANAGER RECENT TASKS (dumpsys activity recents)
   Recent tasks:
   * Recent #0: TaskRecord{1893b774 #550 A=com.teslacoilsw.launcher.NovaLauncher U=0 sz=1}
-  * Recent #1: TaskRecord{7f564b2 #571 A=angus.gaming.targetbooster U=0 sz=0}
+  * Recent #1: TaskRecord{7f564b2 #571 A=gms.angusgaming.targetbooster U=0 sz=0}
   * Recent #2: TaskRecord{d7b6329 #552 A=com.android.systemui U=0 sz=1}
   * Recent #3: TaskRecord{4361d12 #560 I=com.android.settings/.bluetooth.BluetoothScanDialog U=0 sz=0}
 
@@ -2782,7 +2782,7 @@ ACTIVITY MANAGER RUNNING PROCESSES (dumpsys activity processes)
     Proc #44: svcb  B/ /S  trm: 0 10808:com.sec.spp.push/u0a44 (started-services)
     Proc #40: svcb  B/ /S  trm: 0 20467:com.locationlabs.sparkle.yellow.pre:sparkle/u0a65 (started-services)
     Proc #39: svcb  B/ /S  trm: 0 20813:com.facebook.katana/u0a128 (started-services)
-    Proc # 9: cch   B/ /CE trm: 0 10110:angus.gaming.targetbooster/u0a216 (cch-empty)
+    Proc # 9: cch   B/ /CE trm: 0 10110:gms.angusgaming.targetbooster/u0a216 (cch-empty)
     Proc # 1: cch   B/ /CE trm: 0 4767:com.google.android.gms/u0a16 (cch-empty)
     Proc #14: cch+2 B/ /CE trm: 0 9386:com.android.vending/u0a33 (cch-empty)
     Proc #13: cch+2 B/ /CE trm: 0 9818:com.samsung.android.SettingsReceiver/1000 (cch-empty)
@@ -2827,7 +2827,7 @@ ACTIVITY MANAGER RUNNING PROCESSES (dumpsys activity processes)
     PID #14512: com.android.server.am.ActivityManagerService$14@2284cc37
 
   Time since processes crashed:
-    Process angus.gaming.targetbooster uid 10216: last crashed +18s49ms ago
+    Process gms.angusgaming.targetbooster uid 10216: last crashed +18s49ms ago
 
   mStartedUsers:
     User #0: mState=RUNNING
@@ -2960,7 +2960,7 @@ mActivePackages ---
 --PackageName com.MagicTheGatheringCounterFree--Score 0
 --PackageName com.teamviewer.teamviewer.market.mobile--Score 0
 --PackageName kyeongyunstheme.IntheGarden_Monet.cmaweather--Score 0
---PackageName angus.gaming.targetbooster--Score 13083
+--PackageName gms.angusgaming.targetbooster--Score 13083
 --PackageName kyeongyunstheme.IntheGarden_Monet.hearingadjust--Score 0
 --PackageName kyeongyunstheme.IntheGarden_Monet.policydm--Score 0
 --PackageName kyeongyunstheme.IntheGarden_Monet.weathernewsjp--Score 0

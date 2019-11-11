@@ -1,4 +1,4 @@
-package angus.gaming.taptargetbooster.fragment;
+package gms.angusgaming.taptargetbooster.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -18,11 +18,11 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.Objects;
 
-import angus.gaming.taptargetbooster.R;
-import angus.gaming.taptargetbooster.utils.GameModel;
-import angus.gaming.taptargetbooster.utils.GameType;
-import angus.gaming.taptargetbooster.utils.ScoreModel;
-import angus.gaming.taptargetbooster.utils.SpawnType;
+import gms.angusgaming.taptargetbooster.R;
+import gms.angusgaming.taptargetbooster.utils.GameModel;
+import gms.angusgaming.taptargetbooster.utils.GameType;
+import gms.angusgaming.taptargetbooster.utils.ScoreModel;
+import gms.angusgaming.taptargetbooster.utils.SpawnType;
 
 /**
  * @author Harry Cliff
@@ -36,7 +36,7 @@ public class GameFragment extends Fragment {
     private double targetDurationMillis;
     private SpawnType spawnType;
     private double triggerTime, dummyTrigger, hitTime, success, attempt, screenReset, xLocation, yLocation, hitDistance, scoreActual;
-    //    private double targetsPerSecond;
+    //private double targetsPerSecond;
     private double quitTime = -1;
     private int targetPxSize, screenWidthDp, screenHeightDp, targetTopCorner, targetLeftCorner;
     private RelativeLayout gameFrame;

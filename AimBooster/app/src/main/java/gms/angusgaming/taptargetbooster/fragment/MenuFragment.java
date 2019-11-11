@@ -1,4 +1,4 @@
-package angus.gaming.taptargetbooster.fragment;
+package gms.angusgaming.taptargetbooster.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +14,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import java.util.Objects;
 
-import angus.gaming.taptargetbooster.R;
-import angus.gaming.taptargetbooster.utils.GameType;
+import gms.angusgaming.taptargetbooster.R;
+import gms.angusgaming.taptargetbooster.activity.MainActivity;
+import gms.angusgaming.taptargetbooster.utils.GameType;
 
-import static angus.gaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_SIGN_IN;
+import static gms.angusgaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_SIGN_IN;
 
 /**
  * Created by Harry on 4/28/2015.
@@ -37,10 +38,10 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         rootView.findViewById(R.id.doubleshotButton).setOnClickListener(this);
         rootView.findViewById(R.id.speedButton).setOnClickListener(this);
         rootView.findViewById(R.id.trackingButton).setOnClickListener(this);
-//        if(((MainActivity)getActivity()).getmGoogleApiClient().isConnected()){
-//            rootView.findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-//            rootView.findViewById(R.id.achievementsButton).setVisibility(View.VISIBLE);
-//        }
+        if (getActivity() != null && ((MainActivity) getActivity()).getSignedInAccount() != null) {
+            rootView.findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+            rootView.findViewById(R.id.achievementsButton).setVisibility(View.VISIBLE);
+        }
         return rootView;
     }
 
@@ -80,7 +81,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                     gameType = GameType.TRACKING;
                     break;
             }
-            if(gameType != null) {
+            if (gameType != null) {
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, new SettingsFragment(gameType)).commit();
             } else {

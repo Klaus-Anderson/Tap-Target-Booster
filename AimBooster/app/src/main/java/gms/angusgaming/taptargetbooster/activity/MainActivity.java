@@ -1,4 +1,4 @@
-package angus.gaming.taptargetbooster.activity;
+package gms.angusgaming.taptargetbooster.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -14,16 +14,16 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
-import angus.gaming.taptargetbooster.R;
-import angus.gaming.taptargetbooster.fragment.MenuFragment;
+import gms.angusgaming.taptargetbooster.R;
+import gms.angusgaming.taptargetbooster.fragment.MenuFragment;
 
-import static angus.gaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_SIGN_IN;
+import static gms.angusgaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_SIGN_IN;
 
 
 public class MainActivity
         extends FragmentActivity {
-//        implements GoogleApiClient.ConnectionCallbacks,
-//            GoogleApiClient.OnConnectionFailedListener  {
+
+    private GoogleSignInAccount signedInAccount;
 
 //    private boolean mResolvingConnectionFailure = false;
 //    private boolean mAutoStartSignInFlow = true;
@@ -129,12 +129,10 @@ public class MainActivity
                                     Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         if (requestCode == RC_SIGN_IN) {
-//            mSignInClicked = false;
-//            mResolvingConnectionFailure = false;
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(intent);
             if (result.isSuccess()) {
                 // The signed in account is stored in the result.
-                GoogleSignInAccount signedInAccount = result.getSignInAccount();
+                signedInAccount = result.getSignInAccount();
             } else {
                 String message = result.getStatus().getStatusMessage();
                 if (message == null || message.isEmpty()) {
@@ -155,5 +153,9 @@ public class MainActivity
         } else {
             super.onBackPressed();
         }
+    }
+
+    public GoogleSignInAccount getSignedInAccount() {
+        return signedInAccount;
     }
 }

@@ -1,4 +1,4 @@
-package angus.gaming.taptargetbooster.utils;
+package gms.angusgaming.taptargetbooster.utils;
 
 public enum GameType {
     TWITCH,

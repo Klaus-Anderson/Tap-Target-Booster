@@ -1,4 +1,4 @@
-package angus.gaming.taptargetbooster.fragment;
+package gms.angusgaming.taptargetbooster.fragment;
 
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -19,11 +19,11 @@ import androidx.fragment.app.Fragment;
 import java.util.Locale;
 import java.util.Objects;
 
-import angus.gaming.taptargetbooster.R;
-import angus.gaming.taptargetbooster.utils.GameModel;
-import angus.gaming.taptargetbooster.utils.GameType;
-import angus.gaming.taptargetbooster.utils.RankLevel;
-import angus.gaming.taptargetbooster.utils.SpawnType;
+import gms.angusgaming.taptargetbooster.R;
+import gms.angusgaming.taptargetbooster.utils.GameModel;
+import gms.angusgaming.taptargetbooster.utils.GameType;
+import gms.angusgaming.taptargetbooster.utils.RankLevel;
+import gms.angusgaming.taptargetbooster.utils.SpawnType;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener {

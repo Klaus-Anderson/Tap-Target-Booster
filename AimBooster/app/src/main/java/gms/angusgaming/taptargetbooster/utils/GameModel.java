@@ -1,4 +1,4 @@
-package angus.gaming.taptargetbooster.utils;
+package gms.angusgaming.taptargetbooster.utils;
 
 import androidx.annotation.Nullable;
 
@@ -25,6 +25,10 @@ public class GameModel {
     }
 
     public void setGameDuration(Integer gameDuration) {
+        this.gameDuration = gameDuration;
+    }
+
+    public void setGameDuration(double gameDuration) {
         this.gameDuration = gameDuration;
     }
 
@@ -56,10 +60,6 @@ public class GameModel {
         return targetsPerSecond;
     }
 
-    public void setGameDuration(double gameDuration) {
-        this.gameDuration = gameDuration;
-    }
-
     public SpawnType getSpawnType() {
         return spawnType;
     }
@@ -69,7 +69,7 @@ public class GameModel {
     }
 
     @Nullable
-    public RankLevel getRankAttempt(){
+    public RankLevel getRankAttempt() {
         switch (gameType) {
             case TIME_CHALLENGE:
             case REACTION:

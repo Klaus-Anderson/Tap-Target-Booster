@@ -1,4 +1,4 @@
-package angus.gaming.taptargetbooster.fragment;
+package gms.angusgaming.taptargetbooster.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment;
 import java.text.DecimalFormat;
 import java.util.Locale;
 
-import angus.gaming.taptargetbooster.R;
-import angus.gaming.taptargetbooster.utils.ScoreModel;
+import gms.angusgaming.taptargetbooster.R;
+import gms.angusgaming.taptargetbooster.utils.ScoreModel;
 
 public class EndFragment extends Fragment {
     private ScoreModel scoreModel;
