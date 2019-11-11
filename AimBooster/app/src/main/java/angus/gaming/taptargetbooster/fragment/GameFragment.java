@@ -1,6 +1,3 @@
-/**
- * @author Harry Cliff
- */
 package angus.gaming.taptargetbooster.fragment;
 
 import android.annotation.SuppressLint;
@@ -18,6 +15,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 import angus.gaming.taptargetbooster.R;
@@ -26,6 +24,9 @@ import angus.gaming.taptargetbooster.utils.GameType;
 import angus.gaming.taptargetbooster.utils.ScoreModel;
 import angus.gaming.taptargetbooster.utils.SpawnType;
 
+/**
+ * @author Harry Cliff
+ */
 @SuppressLint("ValidFragment")
 public class GameFragment extends Fragment {
 
@@ -34,7 +35,8 @@ public class GameFragment extends Fragment {
     private double gameDurationMillis;
     private double targetDurationMillis;
     private SpawnType spawnType;
-    private double triggerTime, dummyTrigger, hitTime, success, attempt, screenReset, xLocation, yLocation, hitDistance, scoreActual, targetsPerSecond;
+    private double triggerTime, dummyTrigger, hitTime, success, attempt, screenReset, xLocation, yLocation, hitDistance, scoreActual;
+    //    private double targetsPerSecond;
     private double quitTime = -1;
     private int targetPxSize, screenWidthDp, screenHeightDp, targetTopCorner, targetLeftCorner;
     private RelativeLayout gameFrame;
@@ -46,9 +48,8 @@ public class GameFragment extends Fragment {
     private TextView targetScoreText;
     private TextView countDownText;
     private boolean singleClicked, misclicked;
-    private final String TAG = "MainActivity";
 
-    public GameFragment(GameModel gameModel) {
+    GameFragment(GameModel gameModel) {
         this.gameModel = gameModel;
     }
 
@@ -56,24 +57,46 @@ public class GameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_game, container, false);
-        /**
-         * Implement the settings from gameMap
+
+        setUpViews(rootView);
+        setUpGameVariables();
+        setUpGameTimer(rootView);
+
+        return rootView;
+    }
+
+    private void setUpGameTimer(View rootView) {
+        /*
+          Set-up in game timer and updateGameState
          */
-        targetDurationMillis = ((((double) gameModel.getTargetDuration()) + 1) / 10) * 100;
+        timerText = rootView.findViewById(R.id.timerText);
+        scoreTypeText = rootView.findViewById(R.id.scoreType);
+        if (GameType.REACTION.equals(gameModel.getGameType()) || GameType.TWITCH.equals(gameModel.getGameType())) {
+            scoreTypeText.setText(R.string.sped);
+        }
+        scoreText = rootView.findViewById(R.id.score);
+//        TextView targetsText = rootView.findViewById(R.id.targets);
+        targetScoreText = rootView.findViewById(R.id.targetsScore);
 
-        gameDurationMillis = ((gameModel.getGameDuration() + 1) * .5 + 14.5) * 1000;
+        new CountDownTimer((long) (gameDurationMillis + 3000), 10) {
 
-        targetsPerSecond = ((double) gameModel.getTargetsPerSecond()+ 20) / 10;
+            public void onTick(long millisUntilFinished) {
+                timerText.setText(String.format(Locale.getDefault(), "%d", millisUntilFinished / 10));
+                muf = (int) millisUntilFinished;
+                updateGameState();
+            }
 
-        // 1 = random
-        // 2 = instant
-        // 3 = timed
-        spawnType = gameModel.getSpawnType();
+            public void onFinish() {
+                quitTime = 0;
+                gameOver();
+            }
+        }.start();
+    }
 
-        /**
-         * Set up Touch Listeners
+    private void setUpViews(View rootView) {
+        /*
+          Set up Touch Listeners
          */
-
         singleTarget = new ImageView(GameFragment.this.getActivity());
         singleTarget.setImageResource(R.drawable.target);
         singleTarget.setVisibility(View.INVISIBLE);
@@ -99,10 +122,8 @@ public class GameFragment extends Fragment {
         //Screen Click Listener
         gameFrame.setOnClickListener(v -> {
             //Time challenge uses onClickListener
-            if ((GameType.TIME_CHALLENGE.equals(gameModel.getGameType()) || GameType.REACTION.equals(gameModel.getGameType())) && muf <= gameDurationMillis)
-            {
+            if ((GameType.TIME_CHALLENGE.equals(gameModel.getGameType()) || GameType.REACTION.equals(gameModel.getGameType())) && muf <= gameDurationMillis) {
                 singleClicked = true;
-                double distance = touchSetUp(targetLeftCorner + xLocation, targetTopCorner + yLocation);
                 blackDot.setVisibility(View.INVISIBLE);
             }
         });
@@ -115,7 +136,6 @@ public class GameFragment extends Fragment {
                     xLocation = event.getX();
                     yLocation = event.getY();
                 }
-                double distance = touchSetUp(xLocation, yLocation);
 
                 if (gameFrame.isClickable()) {
                     //global variable clean-up
@@ -131,7 +151,6 @@ public class GameFragment extends Fragment {
             //Time challenge uses onClickListener
             if ((GameType.TIME_CHALLENGE.equals(gameModel.getGameType()) || GameType.REACTION.equals(gameModel.getGameType())) && muf <= gameDurationMillis) {
                 singleClicked = true;
-                double distance = touchSetUp(targetLeftCorner + xLocation, targetTopCorner + yLocation);
                 blackDot.setVisibility(View.INVISIBLE);
             }
         });
@@ -147,7 +166,7 @@ public class GameFragment extends Fragment {
                 }
                 double distance = touchSetUp(targetLeftCorner + xLocation, targetTopCorner + yLocation);
 
-                if (distance <= (targetPxSize / 2) && singleTarget.isClickable()) {
+                if (distance <= ((float) targetPxSize / 2) && singleTarget.isClickable()) {
                     singleClicked = true;
                     gameFrame.setClickable(false);
                     singleTarget.setClickable(false);
@@ -162,6 +181,23 @@ public class GameFragment extends Fragment {
             return false;
         });
 
+    }
+
+    private void setUpGameVariables() {
+        /*
+          Implement the settings from gameMap
+         */
+        targetDurationMillis = ((((double) gameModel.getTargetDuration()) + 1) / 10) * 100;
+
+        gameDurationMillis = ((gameModel.getGameDuration() + 1) * .5 + 14.5) * 1000;
+
+//        targetsPerSecond = ((double) gameModel.getTargetsPerSecond() + 20) / 10;
+
+        // 1 = random
+        // 2 = instant
+        // 3 = timed
+        spawnType = gameModel.getSpawnType();
+
         /*
          * Set up variables for Game
          */
@@ -172,35 +208,8 @@ public class GameFragment extends Fragment {
         screenReset = 0;
         success = 0;
         attempt = 0;
-        double averageTotal = 0;
+//        double averageTotal = 0;
         scoreActual = 0;
-
-        /**
-         * Set-up in game timer and updateGameState
-         */
-        timerText = rootView.findViewById(R.id.timerText);
-        scoreTypeText = rootView.findViewById(R.id.scoreType);
-        if (GameType.REACTION.equals(gameModel.getGameType()) || GameType.TWITCH.equals(gameModel.getGameType())) {
-            scoreTypeText.setText(R.string.sped);
-        }
-        scoreText = rootView.findViewById(R.id.score);
-        TextView targetsText = rootView.findViewById(R.id.targets);
-        targetScoreText = rootView.findViewById(R.id.targetsScore);
-
-        CountDownTimer cdTimer = new CountDownTimer((long) (gameDurationMillis + 3000), 10) {
-
-            public void onTick(long millisUntilFinished) {
-                timerText.setText((millisUntilFinished / 10) + "");
-                muf = (int) millisUntilFinished;
-                updateGameState();
-            }
-
-            public void onFinish() {
-                quitTime = 0;
-                gameOver();
-            }
-        }.start();
-        return rootView;
     }
 
     /**
@@ -210,7 +219,7 @@ public class GameFragment extends Fragment {
      * Launches the newScore method in MainActivity, passing
      * it gameModel.getGameType() and scoreMap
      */
-    public void gameOver() {
+    private void gameOver() {
         if (muf >= gameDurationMillis)
             Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new MenuFragment()).commit();
@@ -231,7 +240,7 @@ public class GameFragment extends Fragment {
     private void updateGameState() {
         //display settings
         double targetDpSize = (double) gameModel.getTargetSize() + 30;
-        if(GameFragment.this.getActivity() == null){
+        if (GameFragment.this.getActivity() == null) {
             return;
         }
         DisplayMetrics gameFrameMetrics = GameFragment.this.getActivity().
@@ -375,7 +384,7 @@ public class GameFragment extends Fragment {
                 //rootView.findViewById(R.id.triggered).setVisibility(View.INVISIBLE);
             }
         }
-        if (gameModel.getGameType().equals("ds")) {
+        if (GameType.DOUBLE_SHOT.equals(gameModel.getGameType())) {
         }
         if (gameModel.getGameType().equals(GameType.REACTION)) {
             //This statement is triggered if it is time for a target to appear for the user to click
@@ -421,12 +430,12 @@ public class GameFragment extends Fragment {
             }
 
         }
-        if (gameModel.getGameType().equals("speed")) {
+        if (GameType.SPEED.equals(gameModel.getGameType())) {
         }
-        if (gameModel.getGameType().equals(GameType.TIME_CHALLENGE)) {
+        if (GameType.TIME_CHALLENGE.equals(gameModel.getGameType())) {
             if (attempt > 1) {
                 double aver = Math.floor((attempt / (gameDurationMillis - time)) * 100000) / 100;
-                scoreText.setText(aver + "cps");
+                scoreText.setText(String.format("%scps", aver));
             }
             if (time > triggerTime) {
                 countDownText.setClickable(false);
@@ -454,10 +463,10 @@ public class GameFragment extends Fragment {
             } else if (singleClicked) {
                 attempt++;
                 success++;
-                targetScoreText.setText(((int) success) + "");
+                targetScoreText.setText(String.format(Locale.getDefault(), "%d", (int) success));
                 singleClicked = false;
             }
-            if (gameModel.getGameType().equals("tracking")) {
+            if (GameType.TRACKING.equals(gameModel.getGameType())) {
             }
         }
     }
@@ -520,26 +529,26 @@ public class GameFragment extends Fragment {
         if (gameModel.getGameType().equals(GameType.PRECISION)) {
             df = new DecimalFormat("#.##");
             scoreTypeText.setText(R.string.accuracy);
-            distanceText.setText(df.format(hitDistance) + "px");
+            distanceText.setText(String.format("%spx", df.format(hitDistance)));
             if (scoreActual == 0)
                 scoreActual = hitDistance;
             else
                 scoreActual = ((scoreActual * (attempt - 1)) + hitDistance) / attempt;
-            scoreText.setText(df.format(scoreActual) + "px");
+            scoreText.setText(String.format("%spx", df.format(scoreActual)));
         }
         if (gameModel.getGameType().equals(GameType.TWITCH) || gameModel.getGameType().equals(GameType.REACTION)) {
             df = new DecimalFormat("#.###");
             scoreTypeText.setText(R.string.sped);
-            distanceText.setText(df.format(hitTime) + "ms");
+            distanceText.setText(String.format("%sms", df.format(hitTime)));
             if (scoreActual == 0)
                 scoreActual = hitTime;
             else
                 scoreActual = ((scoreActual * (attempt - 1)) + hitTime) / attempt;
-            scoreText.setText(df.format(scoreActual) + "ms");
+            scoreText.setText(String.format("%sms", df.format(scoreActual)));
         }
         distanceText.setVisibility(View.VISIBLE);
         distanceText.bringToFront();
 
-        targetScoreText.setText(((int) success) + "/" + ((int) attempt));
+        targetScoreText.setText(String.format(Locale.getDefault(), "%d/%d", (int) success, (int) attempt));
     }
 }

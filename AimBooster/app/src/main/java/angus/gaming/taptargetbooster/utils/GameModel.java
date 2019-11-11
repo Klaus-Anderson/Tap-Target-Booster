@@ -20,27 +20,6 @@ public class GameModel {
         this.gameType = gameType;
     }
 
-    public GameModel(Integer gameDuration, Integer targetDuration, Integer targetsPerSecond, Integer targetSize, @Nullable Boolean random, @Nullable Boolean respawn, GameType gameType) {
-        SpawnType spawnType;
-
-        /* 1 = random respawn
-         * 2 = instant respawn
-         * 3 = timed respawn
-         */
-        if (random!= null && random)
-            spawnType = SpawnType.RANDOM;
-        else if (respawn != null && respawn)
-            spawnType = SpawnType.INSTANT;
-        else
-            spawnType = SpawnType.TIME;
-        this.gameDuration = gameDuration;
-        this.targetDuration = targetDuration;
-        this.targetSize = targetSize;
-        this.targetsPerSecond = targetsPerSecond;
-        this.spawnType = spawnType;
-        this.gameType = gameType;
-    }
-
     public double getGameDuration() {
         return gameDuration;
     }

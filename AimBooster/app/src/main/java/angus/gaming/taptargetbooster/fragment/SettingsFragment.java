@@ -16,9 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import java.util.HashMap;
+import java.util.Locale;
 import java.util.Objects;
 
 import angus.gaming.taptargetbooster.R;
@@ -34,9 +32,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
     private static final Integer TWITCH_BRONZE_TARGET_SIZE = 60;
     private GameType gameType;
     private View rootView;
-    private GoogleApiClient mGoogleApiClient;
+//    private GoogleApiClient mGoogleApiClient;
 
-    public SettingsFragment(@NonNull GameType gameType) {
+    SettingsFragment(@NonNull GameType gameType) {
         this.gameType = gameType;
     }
 
@@ -97,19 +95,22 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
         }
     }
 
-    private GameModel adjustGameSetting(RankLevel rankLevel) {
+    private void adjustGameSetting(RankLevel rankLevel) {
         switch (gameType) {
             case TWITCH:
                 switch (rankLevel) {
                     case BRONZE:
-                        return adjustGameSetting(TWITCH_BRONZE_GAME_DURATION, null, TWITCH_BRONZE_TARGET_SIZE,
+                        adjustGameSetting(TWITCH_BRONZE_GAME_DURATION, null, TWITCH_BRONZE_TARGET_SIZE,
                                 null, true, null);
+                        return;
                     case SILVER:
-                        return adjustGameSetting(60, null, 30,
+                        adjustGameSetting(60, null, 30,
                                 null, true, null);
+                        return;
                     case GOLD:
-                        return adjustGameSetting(60, null, 15,
+                        adjustGameSetting(60, null, 15,
                                 null, true, null);
+                        return;
                 }
                 break;
             case DOUBLE_SHOT:
@@ -117,36 +118,41 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
             case PRECISION:
                 switch (rankLevel) {
                     case BRONZE:
-                        return adjustGameSetting(60, 124, 60,
+                        adjustGameSetting(60, 124, 60,
                                 null, true, false);
+                        return;
                     case SILVER:
-                        return adjustGameSetting(60, 79, 32,
+                        adjustGameSetting(60, 79, 32,
                                 null, true, false);
+                        return;
                     case GOLD:
-                        return adjustGameSetting(60, 54, 14,
+                        adjustGameSetting(60, 54, 14,
                                 null, true, false);
+                        return;
                 }
                 break;
             case REACTION:
             case TIME_CHALLENGE:
                 switch (rankLevel) {
                     case BRONZE:
-                        return adjustGameSetting(30, null, null,
+                        adjustGameSetting(30, null, null,
                                 null, null, null);
+                        return;
                     case SILVER:
-                        return adjustGameSetting(45, null, null,
+                        adjustGameSetting(45, null, null,
                                 null, null, null);
+                        return;
                     case GOLD:
-                        return adjustGameSetting(60, null, null,
+                        adjustGameSetting(60, null, null,
                                 null, null, null);
+                        return;
                 }
                 break;
         }
-        return null;
     }
 
-    private GameModel adjustGameSetting(@Nullable Integer gameDuration, @Nullable Integer targetDuration, @Nullable Integer targetSize,
-                                        @Nullable Integer targetsPerSecond, @Nullable Boolean random, @Nullable Boolean respawn) {
+    private void adjustGameSetting(@Nullable Integer gameDuration, @Nullable Integer targetDuration, @Nullable Integer targetSize,
+                                   @Nullable Integer targetsPerSecond, @Nullable Boolean random, @Nullable Boolean respawn) {
         if (gameDuration != null)
             ((SeekBar) rootView.findViewById(R.id.gameDurationSeek)).setProgress(gameDuration);
         if (targetSize != null)
@@ -159,7 +165,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
             rootView.findViewById(R.id.randomBox).setSelected(random);
         if (respawn != null)
             rootView.findViewById(R.id.respawnBox).setSelected(respawn);
-        return new GameModel(gameDuration, targetDuration, targetsPerSecond, targetSize, random, respawn, gameType);
     }
 
     @Override
@@ -318,20 +323,20 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
                 DisplayMetrics displayMetrics = Objects.requireNonNull(getActivity()).
                         getResources().getDisplayMetrics();
                 int px = Math.round((progress + 30) * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
-                targetSizeText.setText((px / 2) + "px");
+                targetSizeText.setText(String.format(Locale.getDefault(), "%dpx", px / 2));
                 target.setLayoutParams(new LinearLayout.LayoutParams(px, px));
                 break;
             case R.id.gameDurationSeek:
                 double size = (((double) progress) + 1) * (.5) + 14.5;
-                gameDurationText.setText(size + " sec");
+                gameDurationText.setText(String.format("%s sec", size));
                 break;
             case R.id.targetDurationSeek:
                 size = (((double) progress) + 1) / 100;
-                targetDurationText.setText(size + " sec");
+                targetDurationText.setText(String.format("%s sec", size));
                 break;
             case R.id.targetPerSecondSeek:
                 double tps = (((double) progress) + 20) / 10;
-                targetPerSecondText.setText(tps + " " + getString(R.string.target_per_second));
+                targetPerSecondText.setText(String.format("%s %s", tps, getString(R.string.target_per_second)));
                 break;
         }
     }

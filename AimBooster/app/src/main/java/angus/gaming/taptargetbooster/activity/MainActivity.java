@@ -25,9 +25,9 @@ public class MainActivity
 //        implements GoogleApiClient.ConnectionCallbacks,
 //            GoogleApiClient.OnConnectionFailedListener  {
 
-    private boolean mResolvingConnectionFailure = false;
-    private boolean mAutoStartSignInFlow = true;
-    private boolean mSignInClicked = false;
+//    private boolean mResolvingConnectionFailure = false;
+//    private boolean mAutoStartSignInFlow = true;
+//    private boolean mSignInClicked = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,8 +129,8 @@ public class MainActivity
                                     Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         if (requestCode == RC_SIGN_IN) {
-            mSignInClicked = false;
-            mResolvingConnectionFailure = false;
+//            mSignInClicked = false;
+//            mResolvingConnectionFailure = false;
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(intent);
             if (result.isSuccess()) {
                 // The signed in account is stored in the result.
