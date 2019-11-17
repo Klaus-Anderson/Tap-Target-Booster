@@ -3,25 +3,25 @@
     <string name="app_id">522561638356</string>
 
     <!-- leaderboard IDs! -->
-    <string name="tc_b">CgkI1J_n2JoPEAIQBg</string>
-    <string name="tc_s">CgkI1J_n2JoPEAIQBw</string>
-    <string name="tc_g">CgkI1J_n2JoPEAIQCA</string>
-    <string name="pre_b">CgkI1J_n2JoPEAIQCQ</string>
-    <string name="pre_s">CgkI1J_n2JoPEAIQCg</string>
-    <string name="pre_g">CgkI1J_n2JoPEAIQCw</string>
-    <string name="twi_b">CgkI1J_n2JoPEAIQDA</string>
-    <string name="twi_s">CgkI1J_n2JoPEAIQDQ</string>
-    <string name="twi_g">CgkI1J_n2JoPEAIQDg</string>
-    <string name="rea_b">CgkI1J_n2JoPEAIQDw</string>
-    <string name="rea_s">CgkI1J_n2JoPEAIQEA</string>
-    <string name="rea_g">CgkI1J_n2JoPEAIQEQ</string>
+    <string name="tc_b">CgkIvO27uJcLEAIQBg</string>
+    <string name="tc_s">CgkIvO27uJcLEAIQBw</string>
+    <string name="tc_g">CgkIvO27uJcLEAIQCA</string>
+    <string name="pre_b">CgkIvO27uJcLEAIQCQ</string>
+    <string name="pre_s">CgkIvO27uJcLEAIQCg</string>
+    <string name="pre_g">CgkIvO27uJcLEAIQCw</string>
+    <string name="twi_b">CgkIvO27uJcLEAIQDA</string>
+    <string name="twi_s">CgkIvO27uJcLEAIQDQ</string>
+    <string name="twi_g">CgkIvO27uJcLEAIQDg</string>
+    <string name="rea_b">CgkIvO27uJcLEAIQDw</string>
+    <string name="rea_s">CgkIvO27uJcLEAIQEA</string>
+    <string name="rea_g">CgkIvO27uJcLEAIQEQ</string>
 
     <!-- Achievement IDs! -->
-    <string name="ooo_thats_fast">CgkI1J_n2JoPEAIQAQ</string>
-    <string name="sniper">CgkI1J_n2JoPEAIQAg</string>
-    <string name="itchy">CgkI1J_n2JoPEAIQAw</string>
-    <string name="lightning">CgkI1J_n2JoPEAIQBA</string>
-    <string name="on_click_hero">CgkI1J_n2JoPEAIQBQ</string>
+    <string name="ooo_thats_fast">CgkIvO27uJcLEAIQAQ</string>
+    <string name="sniper">CgkIvO27uJcLEAIQAg</string>
+    <string name="itchy">CgkIvO27uJcLEAIQAw</string>
+    <string name="lightning">CgkIvO27uJcLEAIQBA</string>
+    <string name="on_click_hero">CgkIvO27uJcLEAIQBQ</string>
 
 
 </resources>
