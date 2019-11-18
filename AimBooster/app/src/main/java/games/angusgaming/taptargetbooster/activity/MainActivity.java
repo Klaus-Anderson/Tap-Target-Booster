@@ -8,13 +8,18 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 
 import games.angusgaming.taptargetbooster.R;
+import games.angusgaming.taptargetbooster.fragment.GooglePlaySupportedFragment;
 import games.angusgaming.taptargetbooster.fragment.MenuFragment;
 
 import static games.angusgaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_SIGN_IN;
@@ -22,8 +27,6 @@ import static games.angusgaming.taptargetbooster.utils.GooglePlayServicesConstan
 
 public class MainActivity
         extends FragmentActivity {
-
-    private GoogleSignInAccount signedInAccount;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,38 @@ public class MainActivity
         return super.onOptionsItemSelected(item);
     }
 
+    private void signInSilently() {
+        GoogleSignInOptions signInOptions = GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN;
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if (GoogleSignIn.hasPermissions(account, signInOptions.getScopeArray())) {
+            // Already signed in.
+            // The signed in account is stored in the 'account' variable.
+            Fragment displayedFragment = getSupportFragmentManager().getFragments().get(0);
+            if (displayedFragment instanceof GooglePlaySupportedFragment) {
+                ((GooglePlaySupportedFragment) displayedFragment).updateGooglePlaySignInState(null);
+            }
+        } else {
+            // Haven't been signed-in before. Try the silent sign-in first.
+            GoogleSignInClient signInClient = GoogleSignIn.getClient(this, signInOptions);
+            signInClient
+                    .silentSignIn()
+                    .addOnCompleteListener(
+                            this,
+                            task -> {
+                                Fragment displayedFragment = getSupportFragmentManager().getFragments().get(0);
+                                if (displayedFragment instanceof GooglePlaySupportedFragment) {
+                                    ((GooglePlaySupportedFragment) displayedFragment).updateGooglePlaySignInState(null);
+                                }
+                            });
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        signInSilently();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -76,10 +111,7 @@ public class MainActivity
         super.onActivityResult(requestCode, resultCode, intent);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(intent);
-            if (result.isSuccess()) {
-                // The signed in account is stored in the result.
-                signedInAccount = result.getSignInAccount();
-            } else {
+            if (!result.isSuccess()) {
                 String message = result.getStatus().getStatusMessage();
                 if (message == null || message.isEmpty()) {
                     message = getString(R.string.signin_other_error);
@@ -87,6 +119,10 @@ public class MainActivity
                 new AlertDialog.Builder(this).setMessage(message)
                         .setNeutralButton(android.R.string.ok, null).show();
             }
+        }
+        Fragment displayedFragment = getSupportFragmentManager().getFragments().get(0);
+        if (displayedFragment instanceof GooglePlaySupportedFragment) {
+            ((GooglePlaySupportedFragment) displayedFragment).updateGooglePlaySignInState(null);
         }
     }
 
@@ -99,9 +135,5 @@ public class MainActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    public GoogleSignInAccount getSignedInAccount() {
-        return signedInAccount;
     }
 }

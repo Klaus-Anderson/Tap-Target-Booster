@@ -2,12 +2,12 @@ package games.angusgaming.taptargetbooster.utils;
 
 public class ScoreModel {
 
-    private double attempt, success, scoreActual, quitTime, gameDurationMillis;
-    private int targetPxSize;
+    private double scoreActual, quitTime, gameDurationMillis;
+    private int attempt, success, targetPxSize;
     private RankLevel rankAttempt;
     private GameType gameType;
 
-    public ScoreModel(double attempt, double success, double scoreActual, double quitTime,
+    public ScoreModel(int attempt, int success, double scoreActual, double quitTime,
                       double gameDurationMillis, int targetPxSize, GameType gameType, RankLevel rankAttempt) {
         this.attempt = attempt;
         this.success = success;
@@ -19,19 +19,19 @@ public class ScoreModel {
         this.rankAttempt = rankAttempt;
     }
 
-    public double getAttempt() {
+    public int getAttempt() {
         return attempt;
     }
 
-    public void setAttempt(double attempt) {
+    public void setAttempt(int attempt) {
         this.attempt = attempt;
     }
 
-    public double getSuccess() {
+    public int getSuccess() {
         return success;
     }
 
-    public void setSuccess(double success) {
+    public void setSuccess(int success) {
         this.success = success;
     }
 

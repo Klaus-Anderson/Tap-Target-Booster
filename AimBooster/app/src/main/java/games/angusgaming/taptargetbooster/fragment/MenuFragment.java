@@ -5,25 +5,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.fragment.app.Fragment;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.games.Games;
 
 import java.util.Objects;
 
 import games.angusgaming.taptargetbooster.R;
-import games.angusgaming.taptargetbooster.activity.MainActivity;
 import games.angusgaming.taptargetbooster.utils.GameType;
 
+import static games.angusgaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_ACHIEVEMENT_UI;
 import static games.angusgaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_SIGN_IN;
 
 /**
  * Created by Harry on 4/28/2015.
  */
-public class MenuFragment extends Fragment implements View.OnClickListener {
+public class MenuFragment extends GooglePlaySupportedFragment implements View.OnClickListener {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,10 +39,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         rootView.findViewById(R.id.doubleshotButton).setOnClickListener(this);
         rootView.findViewById(R.id.speedButton).setOnClickListener(this);
         rootView.findViewById(R.id.trackingButton).setOnClickListener(this);
-        if (getActivity() != null && ((MainActivity) getActivity()).getSignedInAccount() != null) {
-            rootView.findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            rootView.findViewById(R.id.achievementsButton).setVisibility(View.VISIBLE);
-        }
+        updateGooglePlaySignInState(rootView);
         return rootView;
     }
 
@@ -52,10 +50,12 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
             GoogleSignInClient signInClient = GoogleSignIn.getClient(Objects.requireNonNull(getActivity()),
                     GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
             Intent intent = signInClient.getSignInIntent();
-            startActivityForResult(intent, RC_SIGN_IN);
+            getActivity().startActivityForResult(intent, RC_SIGN_IN);
         } else if (view.getId() == R.id.achievementsButton) {
-//            startActivityForResult(Games.Achievements.getAchievementsIntent(mGoogleApiClient),
-//                2);
+            Games.getAchievementsClient(Objects.requireNonNull(getActivity()),
+                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                    .getAchievementsIntent().addOnSuccessListener(intent ->
+                    getActivity().startActivityForResult(intent, RC_ACHIEVEMENT_UI));
         } else {
             GameType gameType = null;
             switch (view.getId()) {
@@ -66,19 +66,13 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                     gameType = GameType.PRECISION;
                     break;
                 case R.id.timeChallenge:
-                    gameType = GameType.TIME_CHALLENGE;
+                case R.id.trackingButton:
+                case R.id.speedButton:
+                case R.id.doubleshotButton:
+                    Toast.makeText(getActivity(), R.string.coming_soon, Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.reactionButton:
                     gameType = GameType.REACTION;
-                    break;
-                case R.id.doubleshotButton:
-                    gameType = GameType.DOUBLE_SHOT;
-                    break;
-                case R.id.speedButton:
-                    gameType = GameType.SPEED;
-                    break;
-                case R.id.trackingButton:
-                    gameType = GameType.TRACKING;
                     break;
             }
             if (gameType != null) {
@@ -86,6 +80,20 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                         .replace(R.id.container, new SettingsFragment(gameType)).commit();
             } else {
                 throw new IllegalStateException("clicked view not on screen!");
+            }
+        }
+    }
+
+    @Override
+    public void updateGooglePlaySignInState(View rootView) {
+        rootView = rootView != null ? rootView : getView();
+        if (rootView != null) {
+            if (getActivity() != null && GoogleSignIn.getLastSignedInAccount(getActivity()) != null) {
+                rootView.findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+                rootView.findViewById(R.id.achievementsButton).setVisibility(View.VISIBLE);
+            } else {
+                rootView.findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
+                rootView.findViewById(R.id.achievementsButton).setVisibility(View.GONE);
             }
         }
     }

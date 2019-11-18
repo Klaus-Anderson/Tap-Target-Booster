@@ -77,26 +77,26 @@ public class GameModel {
                     return RankLevel.BRONZE;
                 else if (gameDuration == 45)
                     return RankLevel.SILVER;
-                else if (gameDuration == 150)
+                else if (gameDuration == 60)
                     return RankLevel.GOLD;
                 break;
             case PRECISION:
                 if (gameDuration == 60 && targetSize == 60 && targetDuration == 124 &&
                         SpawnType.RANDOM.equals(spawnType))
                     return RankLevel.BRONZE;
-                else if (gameDuration == 90 && targetSize == 32 && targetDuration == 79 &&
+                else if (gameDuration == 60 && targetSize == 32 && targetDuration == 79 &&
                         SpawnType.RANDOM.equals(spawnType))
                     return RankLevel.SILVER;
-                else if (gameDuration == 150 && targetSize == 14 && targetDuration == 54 &&
+                else if (gameDuration == 60 && targetSize == 14 && targetDuration == 54 &&
                         SpawnType.RANDOM.equals(spawnType))
                     return RankLevel.GOLD;
                 break;
             case TWITCH:
                 if (gameDuration == 60 && targetSize == 60 && SpawnType.RANDOM.equals(spawnType))
                     return RankLevel.BRONZE;
-                else if (gameDuration == 90 && targetSize == 30 && SpawnType.RANDOM.equals(spawnType))
+                else if (gameDuration == 60 && targetSize == 30 && SpawnType.RANDOM.equals(spawnType))
                     return RankLevel.SILVER;
-                else if (gameDuration == 150 && targetSize == 15 && SpawnType.RANDOM.equals(spawnType))
+                else if (gameDuration == 60 && targetSize == 15 && SpawnType.RANDOM.equals(spawnType))
                     return RankLevel.GOLD;
                 break;
         }

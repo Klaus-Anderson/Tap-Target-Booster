@@ -35,7 +35,8 @@ public class GameFragment extends Fragment {
     private double gameDurationMillis;
     private double targetDurationMillis;
     private SpawnType spawnType;
-    private double triggerTime, dummyTrigger, hitTime, success, attempt, screenReset, xLocation, yLocation, hitDistance, scoreActual;
+    private double triggerTime, dummyTrigger, hitTime, screenReset, xLocation, yLocation, hitDistance, scoreActual;
+    private int success, attempt;
     //private double targetsPerSecond;
     private double quitTime = -1;
     private int targetPxSize, screenWidthDp, screenHeightDp, targetTopCorner, targetLeftCorner;
@@ -434,7 +435,7 @@ public class GameFragment extends Fragment {
         }
         if (GameType.TIME_CHALLENGE.equals(gameModel.getGameType())) {
             if (attempt > 1) {
-                double aver = Math.floor((attempt / (gameDurationMillis - time)) * 100000) / 100;
+                double aver = Math.floor(((double) attempt / (gameDurationMillis - time)) * 100000) / 100;
                 scoreText.setText(String.format("%scps", aver));
             }
             if (time > triggerTime) {
@@ -463,7 +464,7 @@ public class GameFragment extends Fragment {
             } else if (singleClicked) {
                 attempt++;
                 success++;
-                targetScoreText.setText(String.format(Locale.getDefault(), "%d", (int) success));
+                targetScoreText.setText(String.format(Locale.getDefault(), "%s", success));
                 singleClicked = false;
             }
             if (GameType.TRACKING.equals(gameModel.getGameType())) {
@@ -498,10 +499,10 @@ public class GameFragment extends Fragment {
         if (xLocationBullseye <= (screenWidthDp / 2))
             myParams.leftMargin = params.leftMargin + 25;
         else
-            myParams.leftMargin = params.leftMargin - 300;
+            myParams.leftMargin = params.leftMargin - 100;
 
         if (yLocationBullseye >= (screenHeightDp / 2))
-            myParams.topMargin = params.topMargin - 15;
+            myParams.topMargin = params.topMargin - 25;
         else
             myParams.topMargin = params.topMargin + 100;
         distanceText.setLayoutParams(myParams);
@@ -530,9 +531,6 @@ public class GameFragment extends Fragment {
             df = new DecimalFormat("#.##");
             scoreTypeText.setText(R.string.accuracy);
             distanceText.setText(String.format("%spx", df.format(hitDistance)));
-            if (scoreActual == 0)
-                scoreActual = hitDistance;
-            else
                 scoreActual = ((scoreActual * (attempt - 1)) + hitDistance) / attempt;
             scoreText.setText(String.format("%spx", df.format(scoreActual)));
         }
@@ -540,15 +538,19 @@ public class GameFragment extends Fragment {
             df = new DecimalFormat("#.###");
             scoreTypeText.setText(R.string.sped);
             distanceText.setText(String.format("%sms", df.format(hitTime)));
-            if (scoreActual == 0)
-                scoreActual = hitTime;
-            else
-                scoreActual = ((scoreActual * (attempt - 1)) + hitTime) / attempt;
+            scoreActual = ((scoreActual * (attempt - 1)) + hitTime) / attempt;
             scoreText.setText(String.format("%sms", df.format(scoreActual)));
+        }
+        if (hitTime == 1000) {
+            RelativeLayout.LayoutParams myParams = new RelativeLayout
+                    .LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            myParams.addRule(RelativeLayout.ALIGN_PARENT_START, RelativeLayout.TRUE);
+            myParams.addRule(RelativeLayout.BELOW, R.id.scoreType);
+            distanceText.setLayoutParams(myParams);
         }
         distanceText.setVisibility(View.VISIBLE);
         distanceText.bringToFront();
 
-        targetScoreText.setText(String.format(Locale.getDefault(), "%d/%d", (int) success, (int) attempt));
+        targetScoreText.setText(String.format(Locale.getDefault(), "%d/%d", success, attempt));
     }
 }

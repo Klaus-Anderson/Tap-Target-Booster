@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.games.Games;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -25,14 +27,15 @@ import games.angusgaming.taptargetbooster.utils.GameType;
 import games.angusgaming.taptargetbooster.utils.RankLevel;
 import games.angusgaming.taptargetbooster.utils.SpawnType;
 
-public class SettingsFragment extends Fragment implements View.OnClickListener,
+import static games.angusgaming.taptargetbooster.utils.GooglePlayServicesConstants.RC_LEADERBOARD_UI;
+
+public class SettingsFragment extends GooglePlaySupportedFragment implements View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener {
 
     private static final Integer TWITCH_BRONZE_GAME_DURATION = 60;
     private static final Integer TWITCH_BRONZE_TARGET_SIZE = 60;
     private GameType gameType;
     private View rootView;
-//    private GoogleApiClient mGoogleApiClient;
 
     SettingsFragment(@NonNull GameType gameType) {
         this.gameType = gameType;
@@ -56,6 +59,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
         rootView.findViewById(R.id.bronzeLeaderButton).setOnClickListener(this);
         rootView.findViewById(R.id.silverLeaderButton).setOnClickListener(this);
         rootView.findViewById(R.id.goldLeaderButton).setOnClickListener(this);
+
+        updateGooglePlaySignInState(rootView);
 
         setUpViews();
         adjustGameSetting(RankLevel.BRONZE);
@@ -162,9 +167,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
         if (targetsPerSecond != null)
             ((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).setProgress(targetsPerSecond);
         if (random != null)
-            rootView.findViewById(R.id.randomBox).setSelected(random);
+            ((CompoundButton) rootView.findViewById(R.id.randomBox)).setChecked(random);
         if (respawn != null)
-            rootView.findViewById(R.id.respawnBox).setSelected(respawn);
+            ((CompoundButton) rootView.findViewById(R.id.respawnBox)).setChecked(respawn);
+
     }
 
     @Override
@@ -196,89 +202,94 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
     }
 
     private void onLeaderBoardClick(RankLevel rankLevel) {
-//        switch (rankLevel) {
-//            case BRONZE:
-//                if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
-//                    // Call a Play Games services API method, for example:
-//                    if (gameType.equals("twitch")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.twi_b)), 1);
-//                    }
-//                    if (gameType.equals("ds")) {
-//                    }
-//                    if (gameType.equals("precision")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.pre_b)), 1);
-//                    }
-//                    if (gameType.equals("reaction")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.rea_b)), 1);
-//                    }
-//                    if (gameType.equals("tc")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.tc_b)), 1);
-//                    }
-//                    if (gameType.equals("speed")) {
-//                    }
-//                    if (gameType.equals("tracking")) {
-//                    }
-//                }
-//                break;
-//            case SILVER:
-//                if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
-//                    // Call a Play Games services API method, for example:
-//                    if (gameType.equals("twitch")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.twi_s)), 1);
-//                    }
-//                    if (gameType.equals("ds")) {
-//                    }
-//                    if (gameType.equals("precision")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.pre_s)), 1);
-//                    }
-//                    if (gameType.equals("reaction")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.rea_s)), 1);
-//                    }
-//                    if (gameType.equals("tc")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.tc_s)), 1);
-//                    }
-//                    if (gameType.equals("speed")) {
-//                    }
-//                    if (gameType.equals("tracking")) {
-//                    }
-//                }
-//                break;
-//            case GOLD:
-//                if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
-//                    // Call a Play Games services API method, for example:
-//                    if (gameType.equals("twitch")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.twi_g)), 1);
-//                    }
-//                    if (gameType.equals("ds")) {
-//                    }
-//                    if (gameType.equals("precision")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.pre_g)), 1);
-//                    }
-//                    if (gameType.equals("reaction")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.rea_g)), 1);
-//                    }
-//                    if (gameType.equals("tc")) {
-//                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-//                                getString(R.string.tc_g)), 1);
-//                    }
-//                    if (gameType.equals("speed")) {
-//                    }
-//                    if (gameType.equals("tracking")) {
-//                    }
-//                }
-//                break;
-//        }
+        if (getActivity() != null && GoogleSignIn.getLastSignedInAccount(getActivity()) != null) {
+            switch (rankLevel) {
+                case BRONZE:
+                    switch (gameType) {
+                        case TWITCH:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.twi_b))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case PRECISION:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.pre_b))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case REACTION:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.rea_b))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case TIME_CHALLENGE:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.tc_b))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                    }
+                    break;
+                case SILVER:
+                    switch (gameType) {
+                        case TWITCH:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.twi_s))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case PRECISION:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.pre_s))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case REACTION:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.rea_s))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case TIME_CHALLENGE:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.tc_s))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                    }
+                    break;
+                case GOLD:
+                    switch (gameType) {
+                        case TWITCH:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.twi_g))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case PRECISION:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.pre_g))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case REACTION:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.rea_g))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                        case TIME_CHALLENGE:
+                            Games.getLeaderboardsClient(getActivity(),
+                                    Objects.requireNonNull(GoogleSignIn.getLastSignedInAccount(getActivity())))
+                                    .getLeaderboardIntent(getString(R.string.tc_g))
+                                    .addOnSuccessListener(intent -> startActivityForResult(intent, RC_LEADERBOARD_UI));
+                            break;
+                    }
+                    break;
+            }
+        }
     }
 
     private void onStartButtonClick() {
@@ -300,11 +311,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
                 ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).getProgress(),
                 (((SeekBar) rootView.findViewById(R.id.targetPerSecondSeek)).getProgress() + 20) / 10,
                 spawnType, gameType);
-//        gameMap.put("td", (double) (((SeekBar) rootView.findViewById(R.id.targetDurationSeek)).getProgress() + 1) / 10);
-//        gameMap.put("ts", (double) ((SeekBar) rootView.findViewById(R.id.targetSizeSeek)).getProgress() + 30);
-//        gameMap.put("tps", (double) (((SeekBar) rootView.findViewById(R.id.targetPerSecondSeek)).getProgress() + 20) / 10);
-//        gameMap.put("gd", (double) (((SeekBar) rootView.findViewById(R.id.gameDurationSeek)).getProgress() + 1) * (.5) + 14.5);
-//                gameMap.put("lb", leaderboard);
 
         Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new GameFragment(gameModel), "game_tag").commit();
@@ -364,6 +370,23 @@ public class SettingsFragment extends Fragment implements View.OnClickListener,
                     randomBox.setChecked(false);
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void updateGooglePlaySignInState(View rootView) {
+        rootView = rootView != null ? rootView : getView();
+        if (rootView != null) {
+            if (getActivity() != null && GoogleSignIn.getLastSignedInAccount(getActivity()) != null) {
+                rootView.findViewById(R.id.bronzeLeaderButton).setVisibility(View.VISIBLE);
+                rootView.findViewById(R.id.silverLeaderButton).setVisibility(View.VISIBLE);
+                rootView.findViewById(R.id.goldLeaderButton).setVisibility(View.VISIBLE);
+            } else {
+                rootView.findViewById(R.id.bronzeLeaderButton).setVisibility(View.GONE);
+                rootView.findViewById(R.id.silverLeaderButton).setVisibility(View.GONE);
+                rootView.findViewById(R.id.goldLeaderButton).setVisibility(View.GONE);
+            }
+
         }
     }
 }
