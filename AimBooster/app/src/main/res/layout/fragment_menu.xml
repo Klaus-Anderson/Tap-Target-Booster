@@ -1,14 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="angus.gaming.taptargetbooster.MainActivity$PlaceholderFragment">
-
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
     <TextView
         style="@style/styleTheme"
@@ -29,14 +26,12 @@
         <Button
             style="@style/styleTheme"
             android:text="@string/twitch"
-            android:id="@+id/twitchButton"
-            android:onClick="twitchSettings"/>
+            android:id="@+id/twitchButton"/>
 
         <Button
             style="@style/styleTheme"
             android:text="@string/precision"
-            android:id="@+id/precisionButton"
-            android:onClick="precisionSettings"/>
+            android:id="@+id/precisionButton"/>
 
     </LinearLayout>
 
@@ -49,14 +44,14 @@
         <Button
             style="@style/styleTheme"
             android:text="@string/time_challenge"
-            android:layout_weight="1"
-            android:onClick="timeChallengeSettings"/>
+            android:clickable="false"
+            android:textColor="@color/red"
+            android:id="@+id/timeChallenge"/>
 
         <Button
             style="@style/styleTheme"
             android:text="@string/reaction"
-            android:id="@+id/reactionButton"
-            android:onClick="reactionSettings"/>
+            android:id="@+id/reactionButton"/>
 
     </LinearLayout>
 
@@ -71,16 +66,14 @@
             android:text="@string/double_shot"
             android:id="@+id/doubleshotButton"
             android:clickable="false"
-            android:textColor="@color/red"
-            android:onClick="doubleShotSettings"/>
+            android:textColor="@color/red"/>
 
         <Button
             style="@style/styleTheme"
             android:text="@string/speed"
             android:id="@+id/speedButton"
             android:clickable="false"
-            android:textColor="@color/red"
-            android:onClick="speedSettings"/>
+            android:textColor="@color/red"/>
     </LinearLayout>
 
     <LinearLayout
@@ -94,9 +87,7 @@
             android:text="@string/tracking"
             android:id="@+id/trackingButton"
             android:clickable="false"
-            android:textColor="@color/red"
-            android:onClick="trackingSettings"
-            android:layout_weight="1"/>
+            android:textColor="@color/red"/>
 
         <FrameLayout
             android:layout_weight="1"
@@ -112,8 +103,8 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:visibility="gone"
-                android:onClick="achievementsClick"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:focusable="true" />
 
             <!-- sign-in button -->
             <com.google.android.gms.common.SignInButton
@@ -121,7 +112,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </FrameLayout>
-
 
     </LinearLayout>
 

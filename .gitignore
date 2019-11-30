@@ -41,3 +41,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.iml
+AimBooster/app/tapTarget.jks
+*.iml
+*.ser
+*.aab
+AimBooster/app/app.iml

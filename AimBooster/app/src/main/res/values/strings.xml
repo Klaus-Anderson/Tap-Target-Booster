@@ -38,4 +38,8 @@
     <string name="signin_failure">Sign-In Failure</string>
     <string name="lb">LB</string>
     <string name="achievements">Achievements</string>
+    <string name="milliseconds">ms</string>
+    <string name="pixels">px</string>
+    <string name="clicks_per_second">cps</string>
+    <string name="coming_soon">Coming soon!</string>
 </resources>
