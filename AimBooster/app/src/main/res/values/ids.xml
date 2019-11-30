@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_id">522561638356</string>
+    <string name="app_id">384249558716</string>
 
     <!-- leaderboard IDs! -->
     <string name="tc_b">CgkIvO27uJcLEAIQBg</string>
@@ -24,4 +24,5 @@
     <string name="on_click_hero">CgkIvO27uJcLEAIQBQ</string>
 
 
+    <string name="client_id">384249558716-u00p921mv60pm6c7bvgei6ql5800t09l.apps.googleusercontent.com</string>
 </resources>

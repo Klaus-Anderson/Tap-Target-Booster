@@ -28,6 +28,8 @@ import static games.angusgaming.taptargetbooster.utils.GooglePlayServicesConstan
 public class MainActivity
         extends FragmentActivity {
 
+    private static final String TAG = MainActivity.class.getCanonicalName();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,9 +67,10 @@ public class MainActivity
     }
 
     private void signInSilently() {
-        GoogleSignInOptions signInOptions = GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN;
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.client_id)).requestEmail().requestProfile().build();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (GoogleSignIn.hasPermissions(account, signInOptions.getScopeArray())) {
+        if (GoogleSignIn.hasPermissions(account, gso.getScopeArray())) {
             // Already signed in.
             // The signed in account is stored in the 'account' variable.
             Fragment displayedFragment = getSupportFragmentManager().getFragments().get(0);
@@ -76,7 +79,7 @@ public class MainActivity
             }
         } else {
             // Haven't been signed-in before. Try the silent sign-in first.
-            GoogleSignInClient signInClient = GoogleSignIn.getClient(this, signInOptions);
+            GoogleSignInClient signInClient = GoogleSignIn.getClient(this, gso);
             signInClient
                     .silentSignIn()
                     .addOnCompleteListener(
@@ -93,7 +96,6 @@ public class MainActivity
     @Override
     protected void onResume() {
         super.onResume();
-        signInSilently();
     }
 
     @Override

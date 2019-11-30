@@ -44,3 +44,6 @@ Temporary Items
 *.iml
 AimBooster/app/tapTarget.jks
 *.iml
+*.ser
+*.aab
+AimBooster/app/app.iml

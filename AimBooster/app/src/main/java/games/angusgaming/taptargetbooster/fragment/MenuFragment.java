@@ -25,7 +25,6 @@ import static games.angusgaming.taptargetbooster.utils.GooglePlayServicesConstan
  */
 public class MenuFragment extends GooglePlaySupportedFragment implements View.OnClickListener {
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,8 +46,10 @@ public class MenuFragment extends GooglePlaySupportedFragment implements View.On
     public void onClick(View view) {
         if (view.getId() == R.id.sign_in_button) {
             // start the asynchronous sign in flow
+            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.client_id)).requestEmail().requestProfile().build();
             GoogleSignInClient signInClient = GoogleSignIn.getClient(Objects.requireNonNull(getActivity()),
-                    GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN);
+                    gso);
             Intent intent = signInClient.getSignInIntent();
             getActivity().startActivityForResult(intent, RC_SIGN_IN);
         } else if (view.getId() == R.id.achievementsButton) {
@@ -78,8 +79,6 @@ public class MenuFragment extends GooglePlaySupportedFragment implements View.On
             if (gameType != null) {
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, new SettingsFragment(gameType)).commit();
-            } else {
-                throw new IllegalStateException("clicked view not on screen!");
             }
         }
     }
