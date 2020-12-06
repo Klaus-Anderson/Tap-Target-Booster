@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/styleTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="@string/app_name"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/twitchButton"
+            style="@style/styleTheme"
+            android:text="@string/twitch" />
+
+        <Button
+            android:id="@+id/precisionButton"
+            style="@style/styleTheme"
+            android:text="@string/precision" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/timeChallenge"
+            style="@style/styleTheme"
+            android:clickable="false"
+            android:text="@string/time_challenge"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/reactionButton"
+            style="@style/styleTheme"
+            android:text="@string/reaction" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/doubleshotButton"
+            style="@style/styleTheme"
+            android:clickable="false"
+            android:text="@string/double_shot"
+            android:textColor="@color/red" />
+
+        <Button
+            android:id="@+id/speedButton"
+            style="@style/styleTheme"
+            android:clickable="false"
+            android:text="@string/speed"
+            android:textColor="@color/red" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/trackingButton"
+            style="@style/styleTheme"
+            android:clickable="false"
+            android:text="@string/tracking"
+            android:textColor="@color/red" />
+
+        <FrameLayout
+            android:id="@+id/deckFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/achievementsButton"
+                style="@style/styleTheme"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/achievements"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+            <!-- sign-in button -->
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/gameType"
+            style="@style/styleTheme"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center|right"
+            android:text="gameType" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/styleTheme"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/game_over" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/accuracyType"
+            style="@style/styleTheme"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center|right"
+            android:text="@string/score"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/accuracyFinal"
+            style="@style/styleTheme"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:text="hmm"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/accuracyRate"
+            style="@style/styleTheme"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="%"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/styleTheme"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center|right"
+            android:text="@string/targets" />
+
+        <TextView
+            android:id="@+id/targetsFinal"
+            style="@style/styleTheme"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/game_over" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/targetRadiusTitle"
+            style="@style/styleTheme"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center|right"
+            android:text="@string/target_size" />
+
+        <TextView
+            android:id="@+id/targetRadius"
+            style="@style/styleTheme"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/game_over" />
+    </LinearLayout>
+</LinearLayout>

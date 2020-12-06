@@ -1,98 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07dd7c53-bc9d-4dd5-b4be-d84c4f383428" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="a06e5f19-8c91-49c6-9b1f-5d6f989854fb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Tap-Target-Booster.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/copyright/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/dictionaries/harry.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/AimBooster.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/app-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/blackDot-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/black_dot-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/ic_launcher-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/activity/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/fragment/EndFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/fragment/GameFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/fragment/GooglePlaySupportedFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/fragment/MenuFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/fragment/SettingsFragment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/utils/GameModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/utils/GameType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/utils/GooglePlayServicesConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/utils/RankLevel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/utils/ScoreModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/java/games/angusgaming/taptargetbooster/utils/SpawnType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/drawable/target.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/layout/fragment_end.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/layout/fragment_game.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/layout/fragment_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/layout/fragment_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/menu/menu_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/mipmap-hdpi/blackdot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/mipmap-mdpi/blackdot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/mipmap-xhdpi/blackdot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/mipmap-xxhdpi/blackdot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/mipmap-xxxhdpi/blackdot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/values-w820dp/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/values/ids.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/app/src/main/target-web.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/captures/SystemInfo_2015.12.16_10.57.19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/captures/SystemInfo_2015.12.16_11.14.46.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AimBooster/settings.gradle" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R38M30APP0T]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Tap-Target-Booster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tap-Target-Booster" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Tap-Target-Booster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tap-Target-Booster" type="462c0819:PsiDirectoryNode" />
-              <item name="AimBooster" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectId" id="1lHBHDOrKqso59O27pvaFZyxt3f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AimBooster" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="Tap-Target-Booster.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="07dd7c53-bc9d-4dd5-b4be-d84c4f383428" name="Default Changelist" comment="" />
-      <created>1571962993422</created>
+      <changelist id="a06e5f19-8c91-49c6-9b1f-5d6f989854fb" name="Default Changelist" comment="" />
+      <created>1607244046230</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571962993422</updated>
+      <updated>1607244046230</updated>
     </task>
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32982087" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Resources Explorer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Captures" order="0" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
-    </layout>
   </component>
 </project>
